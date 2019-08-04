@@ -130,7 +130,7 @@ Adafruit_NeoPixel strip(LED_COUNT, LED_PIN, NEO_GRB + NEO_KHZ800);
 #define melodyPin 3
 //Mario main theme melody
 int melody[] = {
-  NOTE_E7, NOTE_E7, 0, NOTE_E7,
+  NOTE_E7 strip.setPixelColor(1,0,0,255); , NOTE_E7, 0, NOTE_E7,
   0, NOTE_C7, NOTE_E7, 0,
   NOTE_G7, 0, 0,  0,
   NOTE_G6, 0, 0, 0,
@@ -236,17 +236,22 @@ void setup(void)
 
     strip.begin();           // INITIALIZE NeoPixel strip object (REQUIRED)
     strip.show();            // Turn OFF all pixels ASAP
-    strip.setBrightness(255); // Set BRIGHTNESS to about 1/5 (max = 255)
+    strip.setBrightness(100); // Set BRIGHTNESS to about 1/5 (max = 255)
   pinMode(3, OUTPUT);//buzzer
   pinMode(13, OUTPUT);//led indicator when singing a note
 
 }
 void loop()
 {
+  strip.setPixelColor(1,0,0,255);
+  strip.show();
   //sing the tunes
   sing(1);
   sing(1);
   sing(2);
+
+  strip.setPixelColor(2,255,0,0);
+  strip.show();
 }
 int song = 0;
 
@@ -317,6 +322,8 @@ void buzz(int targetPin, long frequency, long length) {
   digitalWrite(13, LOW);
 
 }
-{
-  void strip.setPixelColor(255,255,255);
-}
+//{
+
+ // strip.setPixelColor(255,255,255);
+  //strip.show()
+//}
